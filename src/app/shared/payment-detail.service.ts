@@ -7,23 +7,27 @@ import {  HttpClient } from '@angular/common/http';
 })
 export class PaymentDetailService {
 
-  constructor(private http:HttpClient) { }
+  constructor(private http: HttpClient) { }
 
   readonly baseURL = 'http://localhost:49248/api/PaymentDetail';
   formData: PaymentDetail = new PaymentDetail();
   list: PaymentDetail[];
 
+  // tslint:disable-next-line: typedef
   postPaymentDetail(){
-    return this.http.post(this.baseURL,this.formData);
+    return this.http.post(this.baseURL, this.formData);
   }
 
+  // tslint:disable-next-line: typedef
   putPaymentDetail(){
-    return this.http.put(`${this.baseURL}/${this.formData.paymentDetailId}`,this.formData);
+    return this.http.put(`${this.baseURL}/${this.formData.paymentDetailId}`, this.formData);
   }
+  // tslint:disable-next-line: typedef
   deletePaymentDetail(id: number){
     return this.http.delete(`${this.baseURL}/${id}`);
   }
 
+  // tslint:disable-next-line: typedef
   refreshList(){
     this.http.get(this.baseURL)
     .toPromise()
